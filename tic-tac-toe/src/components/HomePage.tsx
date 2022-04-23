@@ -22,7 +22,6 @@ const HomePage = () => {
 
   const customhooklesz = () => {
     const datas = gameMode.split(",");
-    //console.log(datas);
     ctx.row = parseInt(datas[0]);
     ctx.column = parseInt(datas[1]);
     ctx.playerOne = playerOne;

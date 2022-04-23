@@ -10,8 +10,9 @@ import {
 import useGame from "./useGame";
 
 const GamePage = () => {
-  const { timer } = useGame();
+  const { timer, valueHandler } = useGame();
   const ctx = useContext(DataContext);
+
   return (
     <Container>
       <HeaderContainer>
@@ -21,10 +22,15 @@ const GamePage = () => {
       </HeaderContainer>
       <GameTable>
         <tbody>
-          {ctx.table.map((row: Row, rowindex: number) => (
-            <TableRow key={rowindex}>
-              {row.map((value: Value, columnindex: number) => (
-                <TableData key={columnindex}>{value}</TableData>
+          {ctx.table.map((row: Row, rowIndex: number) => (
+            <TableRow key={rowIndex}>
+              {row.map((value: Value, columnIndex: number) => (
+                <TableData
+                  key={columnIndex}
+                  onClick={() => valueHandler(value, rowIndex, columnIndex)}
+                >
+                  {value}
+                </TableData>
               ))}
             </TableRow>
           ))}

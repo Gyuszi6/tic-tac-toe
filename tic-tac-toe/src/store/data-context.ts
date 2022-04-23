@@ -14,7 +14,7 @@ export enum Value {
   secondPlayer = "O",
 }
 
-export type Row = Array<Value>;
+export type Row = Value[];
 
 export type GameField = Row[];
 
