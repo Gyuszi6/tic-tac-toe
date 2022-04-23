@@ -5,6 +5,7 @@ const useGame = () => {
   const [timer, setTimer] = useState(0);
   const [playerId, setPlayerId] = useState(1);
   const ctx = useContext(DataContext);
+  const [active, setActive] = useState(ctx.playerOne);
 
   useEffect(() => {
     setTimeout(() => {
@@ -30,15 +31,17 @@ const useGame = () => {
   ) => {
     if (playerId === 1 && value === Value.empty) {
       ctx.table[rowIndex][columnIndex] = Value.firstPlayer;
+      setActive(ctx.playerTwo);
       setPlayerId(2);
     }
     if (playerId === 2 && value === Value.empty) {
       ctx.table[rowIndex][columnIndex] = Value.secondPlayer;
+      setActive(ctx.playerOne);
       setPlayerId(1);
     }
   };
 
-  return { timer, createTable, valueHandler };
+  return { timer, createTable, valueHandler, active };
 };
 
 export default useGame;

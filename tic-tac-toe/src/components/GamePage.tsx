@@ -11,7 +11,7 @@ import {
 import useGame from "./useGame";
 
 const GamePage = () => {
-  const { timer, valueHandler } = useGame();
+  const { timer, valueHandler, active } = useGame();
   const ctx = useContext(DataContext);
   const nav = useNavigate();
 
@@ -27,6 +27,7 @@ const GamePage = () => {
         <div>Player1: {ctx.playerOne}</div>
         <div>Time: {timer} </div>
         <div>Player2: {ctx.playerTwo}</div>
+        <div>Active: {active}</div>
       </HeaderContainer>
       <GameTable>
         <tbody>
@@ -35,7 +36,9 @@ const GamePage = () => {
               {row.map((value: Value, columnIndex: number) => (
                 <TableData
                   key={columnIndex}
-                  onClick={() => valueHandler(value, rowIndex, columnIndex)}
+                  onClick={() => {
+                    valueHandler(value, rowIndex, columnIndex);
+                  }}
                 >
                   {value}
                 </TableData>
