@@ -68,4 +68,6 @@ export const GameTable = styled.table`
 `;
 
 export const TableRow = styled.tr``;
-export const TableData = styled.td``;
+export const TableData = styled.td`
+  text-align: center;
+`;
