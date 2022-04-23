@@ -9,7 +9,7 @@ type ContextType = {
 };
 
 export enum Value {
-  empty = "-",
+  empty = "",
   firstPlayer = "X",
   secondPlayer = "O",
 }

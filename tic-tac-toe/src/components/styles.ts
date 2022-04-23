@@ -62,12 +62,24 @@ export const HeaderContainer = styled.div`
 `;
 
 export const GameTable = styled.table`
-  margin: auto;
+  margin: 0 auto;
   border-collapse: collapse;
   border: 2px solid black;
+  width: 450px;
+  height: 450px;
+  padding: 0;
 `;
 
-export const TableRow = styled.tr``;
+export const TableRow = styled.tr`
+  padding: 0;
+  margin: 0;
+`;
 export const TableData = styled.td`
+  padding: 0;
+  margin: 0;
   text-align: center;
+  border: 2px solid black;
+  width: 10px;
+  height: 10px;
+  f
 `;
