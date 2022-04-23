@@ -1,4 +1,5 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import DataContext, { Row, Value } from "../store/data-context";
 import {
   Container,
@@ -12,6 +13,13 @@ import useGame from "./useGame";
 const GamePage = () => {
   const { timer, valueHandler } = useGame();
   const ctx = useContext(DataContext);
+  const nav = useNavigate();
+
+  useEffect(() => {
+    if (ctx.playerOne === "") {
+      nav("/home");
+    }
+  }, [nav, ctx.playerOne]);
 
   return (
     <Container>

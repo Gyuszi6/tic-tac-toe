@@ -25,7 +25,6 @@ export const GameButton = styled.button`
   padding: 10px 10px;
   text-align: center;
   touch-action: manipulation;
-
 }
 
 &:hover :enabled {
@@ -40,7 +39,6 @@ export const GameButton = styled.button`
 &:disabled {
   color: #969696;
   cursor: not-allowed;
-
 }
 `;
 
@@ -74,12 +72,13 @@ export const TableRow = styled.tr`
   padding: 0;
   margin: 0;
 `;
+
 export const TableData = styled.td`
+  font-size: 15px;
   padding: 0;
   margin: 0;
   text-align: center;
   border: 2px solid black;
-  width: 10px;
-  height: 10px;
-  f
+  width: 20px;
+  height: 20px;
 `;
