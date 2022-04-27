@@ -11,7 +11,7 @@ import {
 import useGame from "./useGame";
 
 const GamePage = () => {
-  const { timer, valueHandler, active } = useGame();
+  const { timer, onClickHandler, active } = useGame();
   const ctx = useContext(DataContext);
   const nav = useNavigate();
 
@@ -37,7 +37,7 @@ const GamePage = () => {
                 <TableData
                   key={columnIndex}
                   onClick={() => {
-                    valueHandler(value, rowIndex, columnIndex);
+                    onClickHandler(value, rowIndex, columnIndex);
                   }}
                 >
                   {value}

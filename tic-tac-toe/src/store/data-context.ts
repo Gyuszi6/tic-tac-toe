@@ -1,5 +1,11 @@
 import React from "react";
 
+export enum Value {
+  empty = "",
+  firstPlayer = "X",
+  secondPlayer = "O",
+}
+
 type ContextType = {
   playerOne: string;
   playerTwo: string;
@@ -7,12 +13,6 @@ type ContextType = {
   row: number;
   column: number;
 };
-
-export enum Value {
-  empty = "",
-  firstPlayer = "X",
-  secondPlayer = "O",
-}
 
 export type Row = Value[];
 
