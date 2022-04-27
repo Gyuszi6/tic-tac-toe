@@ -26,6 +26,20 @@ const useGame = () => {
     return table;
   };
 
+  const toTheGame = (
+    row: number,
+    column: number,
+    playerOne: string,
+    playerTwo: string
+  ) => {
+    ctx.row = row;
+    ctx.column = column;
+    ctx.playerOne = playerOne;
+    ctx.playerTwo = playerTwo;
+    ctx.table = createTable(row, column);
+    nav("/game");
+  };
+
   const onClickHandler = (
     value: Value,
     rowIndex: number,
@@ -156,7 +170,7 @@ const useGame = () => {
     return 0;
   };
 
-  return { timer, createTable, onClickHandler, active };
+  return { timer, createTable, onClickHandler, active, toTheGame };
 };
 
 export default useGame;

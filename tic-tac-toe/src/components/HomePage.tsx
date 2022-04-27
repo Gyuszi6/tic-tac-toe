@@ -1,13 +1,9 @@
 import { Container, GameButton, HomePageTitle, InputContainer } from "./styles";
-import { useNavigate } from "react-router-dom";
-import React, { useState, useContext } from "react";
-import DataContext from "../store/data-context";
+import React, { useState } from "react";
 import NameInput from "../elements/NameInput";
 import useGame from "./useGame";
 
 const HomePage = () => {
-  const navigate = useNavigate();
-  const ctx = useContext(DataContext);
   const [gameMode, setGameMode] = useState("choose");
   const [playerOne, setPlayerOne] = useState("");
   const [playerTwo, setPlayerTwo] = useState("");
@@ -18,17 +14,11 @@ const HomePage = () => {
   const gameModeHandler = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setGameMode(event?.target.value);
   };
-  const { createTable } = useGame();
+  const { toTheGame } = useGame();
 
-  const customhooklesz = () => {
-    const datas = gameMode.split(",");
-    ctx.row = parseInt(datas[0]);
-    ctx.column = parseInt(datas[1]);
-    ctx.playerOne = playerOne;
-    ctx.playerTwo = playerTwo;
-    ctx.table = createTable(ctx.row, ctx.column);
-    navigate("/game");
-  };
+  const datas = gameMode.split(",");
+  let row = parseInt(datas[0]);
+  let column = parseInt(datas[1]);
 
   return (
     <Container>
@@ -59,7 +49,12 @@ const HomePage = () => {
         </select>
       </InputContainer>
       <InputContainer>
-        <GameButton disabled={isDisabled} onClick={customhooklesz}>
+        <GameButton
+          disabled={isDisabled}
+          onClick={() => {
+            toTheGame(row, column, playerOne, playerTwo);
+          }}
+        >
           Start Game
         </GameButton>
       </InputContainer>
