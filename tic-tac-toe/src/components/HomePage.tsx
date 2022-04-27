@@ -38,7 +38,7 @@ const HomePage = () => {
         }}
       />
       <InputContainer>
-        <label htmlFor="choose">Stage: </label>
+        <label htmlFor="choose">Size: </label>
         <select name="choose" id="choose" onChange={gameModeHandler}>
           <option hidden value="choose">
             Choose
