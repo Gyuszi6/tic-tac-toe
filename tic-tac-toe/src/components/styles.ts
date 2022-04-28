@@ -27,12 +27,12 @@ export const GameButton = styled.button`
   touch-action: manipulation;
 }
 
-&:hover :enabled {
-  background-color: #FFC229;
+&:hover:enabled {
+  background-color: yellow;
   box-shadow: #FF6314 0 -6px 8px inset;
 }
 
-&:active {
+&:enabled:active {
   transform: scale(1.025);
 }
 
